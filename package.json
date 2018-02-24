@@ -1,0 +1,28 @@
+{
+  "name": "mis-h5-rem",
+  "version": "1.0.0",
+  "description": "px2rem",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev-mis": "cross-env NODE_ENV=dev-mis node build/dev.js",
+    "dev": ""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/58MIS-FE/mis-h5-rem.git"
+  },
+  "keywords": [
+    "h5",
+    "rem"
+  ],
+  "author": "zhangzhen",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/58MIS-FE/mis-h5-rem/issues"
+  },
+  "homepage": "https://github.com/58MIS-FE/mis-h5-rem#readme",
+  "devDependencies": {
+    "cross-env": "^5.1.3"
+  }
+}
