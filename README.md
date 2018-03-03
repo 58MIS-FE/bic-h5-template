@@ -24,10 +24,10 @@ text.css
 转换成 
 
 ```
-    .selector {
+.selector {
     width: 2rem;
     border: 1px solid #ddd;
-    }
+}
     [data-dpr="1"] .selector {
     height: 32px;
     font-size: 14px;
@@ -62,7 +62,7 @@ text.css
 更多详情请了解<a href='https://www.npmjs.com/package/gulp-px3rem'>gulp-px3rem</a> 
 
 
-转换css
+## 转换css
 
 ```
 npm run gulp:css 
