@@ -36,20 +36,18 @@ gulp.task('px2rem', () => {
 gulp.task('less', () => {
    gulp.src(Util.path('_less/index.less'))
     .pipe(less())
-    .pipe(px2rem())
     .pipe(autoprefix('last 2 versions'))
     .pipe(connect.reload())
-    .pipe(gulp.dest(Util.path('style')))
+    .pipe(gulp.dest(Util.path('_style')))
 })
 
 //sass文件
 gulp.task('sass', () => {
   gulp.src(Util.path('_scss/index.scss'))
    .pipe(cleanCSS())
-   .pipe(px2rem())
    .pipe(autoprefix('last 2 versions'))
    .pipe(connect.reload())
-   .pipe(gulp.dest(Util.path('style')))
+   .pipe(gulp.dest(Util.path('_style')))
 })
 
 //压缩css 
@@ -74,6 +72,18 @@ gulp.task('htmlUglify', ()=>{
     .pipe(gulp.dest(Util.path('../dist')))
 })
 
+//图片输出
+gulp.task('imagesUglify', ()=>{
+  gulp.src(Util.path('images/*.png'))
+    .pipe(gulp.dest(Util.path('../dist/images')))
+})
+
+//font输出
+gulp.task('fontUglify', ()=>{
+  gulp.src(Util.path('font/*.css'))
+    .pipe(gulp.dest(Util.path('../dist/font')))
+})
+
 //修改html页面
 gulp.task('html', () => {
   gulp.src(Util.path('*.html'))
@@ -85,7 +95,7 @@ gulp.task('spritesmith',function(){
   gulp.src(Util.path('images/_sprite/*.png'))
       .pipe(spritesmith({
           imgName:'sprite.png',//保存合并后的名称
-          cssName:'../../sprite/icon.css',//保存合并后css样式的地址
+          cssName:'../font/icon.css',//保存合并后css样式的地址
           padding:15,//合并时两个图片的间距
           algorithm:'top-down',//注释1
           //cssTemplate:'dest/css/handlebarsStr.css'//注释2
@@ -95,7 +105,7 @@ gulp.task('spritesmith',function(){
                   arr.push(
                     `.icon-${sprite.name}  
                     {
-                      background-image: url('../images/sprite/sprite.png');
+                      background-image: url('../images/sprite.png');
                       background-position: ${sprite.px.offset_x}  ${sprite.px.offset_y};
                       width:${sprite.px.width};
                       height:${sprite.px.height};
@@ -105,7 +115,7 @@ gulp.task('spritesmith',function(){
               return arr.join("");
           }
       }))
-      .pipe(gulp.dest(Util.path('images/sprite')));
+      .pipe(gulp.dest(Util.path('images')));
 })
 //服务
 gulp.task('server', () => {
@@ -126,8 +136,8 @@ fs.watch(Util.path('images/_sprite'), { encoding: 'utf-8' }, (eventType, filenam
 });
 //监控任务
 gulp.task('watch',function(){
-    gulp.watch(Util.path('_less/*.less'), ['less'])
-    gulp.watch(Util.path('_scss/*.scss'), ['sass'])
+    gulp.watch(Util.path('_less/*.less'), ['less','px2rem'])
+    gulp.watch(Util.path('_scss/*.scss'), ['sass', 'px2rem'])
     gulp.watch(Util.path('_style/*.css'), ['px2rem'])
     // gulp.watch(Util.path('images/_sprite/*.png'), function(event){
     //   console.log(event.path,'-------------------'); //变化的文件的路径
@@ -141,7 +151,7 @@ var type = App.cssStyle || 'px2rem' ;
 gulp.task('cssUglifyAll', [type,'cssUglify'])
 
 //上线 build 压缩all.css js 
-gulp.task('build',['cssUglifyAll','jsUglify','htmlUglify',])
+gulp.task('build',['cssUglifyAll','jsUglify','htmlUglify','imagesUglify','fontUglify'])
 
 //开发环境
 gulp.task('default', ['server','watch']);
