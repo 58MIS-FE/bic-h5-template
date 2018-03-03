@@ -1,7 +1,11 @@
 ## MIS-移动端脚手架 
 
+### 对设计要求 
 
+1.图片 icon 最好是3倍图 
+2.设计稿为 375px 
 
+---
 ### 使用场景 
 
 适用于不使用前端自动化工具的项目，将纯手工打造的以px来布局的css文件批量转换成rem布局的css。
@@ -28,19 +32,19 @@ text.css
     width: 2rem;
     border: 1px solid #ddd;
 }
-    [data-dpr="1"] .selector {
+[data-dpr="1"] .selector {
     height: 32px;
     font-size: 14px;
-    }
-    [data-dpr="2"] .selector {
+}
+[data-dpr="2"] .selector {
     height: 64px;
     font-size: 28px;
-    }
-    [data-dpr="3"] .selector {
+}
+[data-dpr="3"] .selector {
     height: 96px;
     font-size: 42px;
-    }
 }
+
 
 ``` 
 
@@ -59,7 +63,11 @@ text.css
         </tr>
 </table>
 
-更多详情请了解<a href='https://www.npmjs.com/package/gulp-px3rem'>gulp-px3rem</a> 
+##### 注意: Chrome最小12px 11px转换rem的时候在ipone5下会发现字体无法转换 但是在手机上没有问题. 
+更多详情请了解 
+<a href='https://www.npmjs.com/package/gulp-px3rem'>gulp-px3rem</a> 
+<a href='https://www.cnblogs.com/yanxinhua/p/6816141.html'>css雪碧图</a>
+
 
 
 ## 转换css

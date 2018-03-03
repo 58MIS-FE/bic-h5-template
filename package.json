@@ -4,7 +4,13 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "gulp:css": "gulp px2rem",
+    "build:css": "gulp px2rem",
+    "build:less": "gulp less",
+    "build:sass": "gulp sass",
+    "build:img": "gulp spritesmith",
+    "build": "gulp build",
+    "dev": "gulp",
+    "start": "gulp",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -22,7 +28,17 @@
   },
   "homepage": "https://github.com/58MIS-FE/mis-h5-rem#readme",
   "devDependencies": {
+    "chokidar": "^2.0.2",
     "gulp": "^3.9.1",
-    "gulp-px3rem": "^0.3.0"
+    "gulp-autoprefixer": "^5.0.0",
+    "gulp-clean-css": "^3.9.2",
+    "gulp-concat": "^2.6.1",
+    "gulp-connect": "^5.5.0",
+    "gulp-inject": "^4.3.1",
+    "gulp-less": "^4.0.0",
+    "gulp-px3rem": "^0.3.0",
+    "gulp-sass": "^3.1.0",
+    "gulp-uglify": "^3.0.0",
+    "gulp.spritesmith": "^6.9.0"
   }
 }
