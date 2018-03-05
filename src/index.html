@@ -15,11 +15,20 @@
       if ((navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i))) {
         $("html").css('font-size', $(window).width() / 375 * 75);
       }
+      
     })();
+    function iframeHeight(){
+        var ifm = document.getElementById("ifr");
+        var subWeb = document.frames ? document.frames["ifm"].document : ifm.contentDocument;
+        return $(subWeb.body).height();
+   }
+ 
   </script>
 </head>
 <body>
-  <input type="text" value="" hidden>
+  <input type="text" value="178157721524789248" hidden id='id'>
+  <input type="text" value="10010" hidden id='categoryId'>
+  <input type="text" value="0" hidden id='bspId'>
   <div class="top__wrap">
     <span class="top__logo"></span>
     <div class="top__text">
@@ -28,28 +37,18 @@
     </div>
     <span class="top__open">打开</span>
   </div>
-
-  <iframe id="iframe" src="" frameborder="0">
-
-  </iframe>
+  <div class="iframe_box">
+      <iframe id="ifr" src="" frameborder="0" scrolling="no" onload="iframeHeight()"></iframe>
+  </div>
+  <div class="iframe_btn">
+    <div class="iframe_btn_icon"></div>
+    <div class="iframe_btn_success">展开阅读全文</div>
+  </div>
   <div class="recommond__wrap">
     <p class="recommond__title">
       热门推荐
     </p>
     <ul class="guess_List">
-      <li class="recommond__item">
-        <div class="recommond__left">
-          <img src="" alt="">
-        </div>
-        <div class="recommond__right">
-          <p class="recommond__right__title">过了腊八就是年，你的家乡有哪些喇叭习惯</p>
-          <p class="recommond__right__detail">
-            <span class="recommond__right__detail__span">集团制度</span>
-            <span class="recommond__right__detail__span">阅读 12345</span>
-            <span class="recommond__right__detail__application">打开应用</span>
-          </p>
-        </div>      
-      </li>
     </ul>
   </div>
   <div class="recommond__wrap">
@@ -61,9 +60,19 @@
       </ul>
   </div>
   <!-- 底部 -->
-  <div class="common__wrap"></div>
+    <div class="common__wrap"></div>
+
+    <div class="top__wrap__footer">
+      <span class="top__logo"></span>
+      <div class="top__text">
+        <p class="font__16">美事</p>
+        <p class="font__11">让工作更美好</p>
+      </div>
+      <span class="top__open">打开</span>
+    </div>
   </div>
- 
+  
 </body>
 </html>
    <script src="./js/index.js"></script>
+ 

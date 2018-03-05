@@ -10,11 +10,9 @@ html {
   font-weight: 400;
   -webkit-overflow-scrolling: touch;
   -webkit-text-size-adjust: 100%;
-}
-body {
-  overflow-x: hidden !important;
   position: relative;
 }
+
 ul,
 li,
 button,
@@ -63,8 +61,7 @@ ul {
   width: 100%;
   height: 60px;
   padding: 11px 15px 11px 30px;
-  opacity: 0.8;
-  background: #000000;
+  background: #333333;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
 }
@@ -123,7 +120,6 @@ ul {
   height: 75px;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-  background-color: red;
 }
 .recommond__left__img {
   width: 112px;
@@ -204,4 +200,47 @@ ul {
   color: #FF6214;
   background: #FFFFFF;
   border-radius: 5px;
+}
+.top__wrap__footer{
+  width: 100%;
+  height: 60px;
+  padding: 11px 15px 11px 30px;
+  background: #000000;
+  opacity: 0.8;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  position: fixed;
+  bottom: 0;
+  display: none;
+}
+.iframe_box{
+  height: 574px;
+  overflow: hidden;
+}
+.iframe_btn_success{
+  width: 315px;
+  height: 40px;
+  background: #FF6214;
+  border-radius: 5px;
+  font-size: 15px;
+  color: #FFFFFF;
+  letter-spacing: -0.34px;
+  margin: 0 auto;
+  text-align: center;
+  line-height: 40px;
+}
+#ifr{
+  width: 100%;
+  height: 100%;
+}
+.iframe_btn_icon{
+   width: 16px;
+   height: 16px;
+   background-image: url('../images/sanjiao.png');
+   background-size: 100%;
+   margin: 3px auto 5px;
+
+}
+.iframe_btn{
+  z-index: 999
 }
