@@ -12,6 +12,7 @@ html {
   -webkit-text-size-adjust: 100%;
   position: relative;
 }
+
 ul,
 li,
 button,
@@ -60,8 +61,7 @@ ul {
   width: 100%;
   height: 60px;
   padding: 11px 15px 11px 30px;
-  opacity: 0.8;
-  background: #000000;
+  background: #333333;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
 }
@@ -120,7 +120,6 @@ ul {
   height: 75px;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-  background-color: red;
 }
 .recommond__left__img {
   width: 112px;
@@ -204,6 +203,7 @@ ul {
 }
 .top__wrap__footer{
   width: 100%;
+<<<<<<< HEAD
   height: 60px;/*no*/
   padding: 11px 15px 11px 30px;
   opacity: 0;
@@ -212,3 +212,46 @@ ul {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
 }
+=======
+  height: 60px;
+  padding: 11px 15px 11px 30px;
+  background: #000000;
+  opacity: 0.8;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  position: fixed;
+  bottom: 0;
+  display: none;
+}
+.iframe_box{
+  height: 574px;
+  overflow: hidden;
+}
+.iframe_btn_success{
+  width: 315px;
+  height: 40px;
+  background: #FF6214;
+  border-radius: 5px;
+  font-size: 15px;
+  color: #FFFFFF;
+  letter-spacing: -0.34px;
+  margin: 0 auto;
+  text-align: center;
+  line-height: 40px;
+}
+#ifr{
+  width: 100%;
+  height: 100%;
+}
+.iframe_btn_icon{
+   width: 16px;
+   height: 16px;
+   background-image: url('../images/sanjiao.png');
+   background-size: 100%;
+   margin: 3px auto 5px;
+
+}
+.iframe_btn{
+  z-index: 999
+}
+>>>>>>> 04616cffd6e68d1bf466d4d1fdc62440cd6e7208
