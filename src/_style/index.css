@@ -203,16 +203,6 @@ ul {
 }
 .top__wrap__footer{
   width: 100%;
-<<<<<<< HEAD
-  height: 60px;/*no*/
-  padding: 11px 15px 11px 30px;
-  opacity: 0;
-  background: #000000;
-  display: none;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-}
-=======
   height: 60px;
   padding: 11px 15px 11px 30px;
   background: #000000;
@@ -254,4 +244,3 @@ ul {
 .iframe_btn{
   z-index: 999
 }
->>>>>>> 04616cffd6e68d1bf466d4d1fdc62440cd6e7208
