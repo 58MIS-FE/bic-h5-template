@@ -122,7 +122,7 @@ gulp.task('server', () => {
   connect.server({
     root: App.srcPath,
     port: App.port,
-    host: App.host || 'localhost',
+    host: App.host || '127.0.0.1',
     livereload: true //实时刷新
   })
 });
