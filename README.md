@@ -70,10 +70,16 @@ text.css
 
 
 
-## 转换css
+## npm run 
 
 ```
-npm run gulp:css 
+    "build:css": "gulp px2rem",
+    "build:less": "gulp less",
+    "build:sass": "gulp sass",
+    "build:img": "gulp spritesmith",
+    "build": "gulp build",
+    "dev": "gulp",
+    "start": "gulp",
  
 ```
 
