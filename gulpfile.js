@@ -12,21 +12,19 @@ var gulp = require('gulp'),
     fs = require('fs')
     inject = require('gulp-inject') //注入
     Util = require('./config/util') //公共工具
-    App = require('./config');
-    
- 
-px2rem({
-  baseDpr: 2,             // base device pixel ratio (default: 2)
-  threeVersion: false,    // whether to generate @1x, @2x and @3x version (default: false)
-  remVersion: true,       // whether to generate rem version (default: true)
-  remUnit: 75,            // rem unit value (default: 75)
-  remPrecision: 6         // rem precision (default: 6)
-})
+    App = require('./config'),
+    px2remConfig = {
+      baseDpr: 2,             // base device pixel ratio (default: 2)
+      threeVersion: false,    // whether to generate @1x, @2x and @3x version (default: false)
+      remVersion: true,       // whether to generate rem version (default: true)
+      remUnit: 75,            // rem unit value (default: 75)
+      remPrecision: 6         // rem precision (default: 6)
+    };
 
 //px转换rem
 gulp.task('px2rem', () => {
   gulp.src(Util.path('_style/*.css'))
-    .pipe(px2rem())
+    .pipe(px2rem(px2remConfig))
     .pipe(autoprefix('last 2 versions'))
     .pipe(connect.reload())
     .pipe(gulp.dest(Util.path('style')))
