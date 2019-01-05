@@ -1,17 +1,17 @@
-var gulp = require('gulp'),
+let gulp = require('gulp'),
     px2rem = require('gulp-px3rem'),
-    connect = require('gulp-connect')
-    less = require('gulp-less')
-    sass = require('gulp-sass')
-    cleanCSS = require('gulp-clean-css')
-    autoprefix = require('gulp-autoprefixer') //css3补全
-    concat = require('gulp-concat')
-    spritesmith=require('gulp.spritesmith') //合成雪碧图
-    uglify = require('gulp-uglify')
-    chokidar = require('chokidar')
-    fs = require('fs')
-    inject = require('gulp-inject') //注入
-    Util = require('./config/util') //公共工具
+    connect = require('gulp-connect'),
+    less = require('gulp-less'),
+    sass = require('gulp-sass'),
+    cleanCSS = require('gulp-clean-css'),
+    autoprefix = require('gulp-autoprefixer'), //css3补全
+    concat = require('gulp-concat'),
+    spritesmith=require('gulp.spritesmith'), //合成雪碧图
+    uglify = require('gulp-uglify'),
+    chokidar = require('chokidar'),
+    fs = require('fs'),
+    inject = require('gulp-inject'), //注入
+    Util = require('./config/util'), //公共工具
     App = require('./config'),
     px2remConfig = {
       baseDpr: 2,             // base device pixel ratio (default: 2)
@@ -19,7 +19,8 @@ var gulp = require('gulp'),
       remVersion: true,       // whether to generate rem version (default: true)
       remUnit: 75,            // rem unit value (default: 75)
       remPrecision: 6         // rem precision (default: 6)
-    };
+    },
+    proxy = require('http-proxy-middleware');
 
 //px转换rem
 gulp.task('px2rem', () => {
@@ -37,7 +38,7 @@ gulp.task('less', () => {
     .pipe(autoprefix('last 2 versions'))
     .pipe(connect.reload())
     .pipe(gulp.dest(Util.path('_style')))
-})
+});
 
 //sass文件
 gulp.task('sass', () => {
@@ -46,7 +47,7 @@ gulp.task('sass', () => {
    .pipe(autoprefix('last 2 versions'))
    .pipe(connect.reload())
    .pipe(gulp.dest(Util.path('_style')))
-})
+});
 
 //压缩css 
 gulp.task('cssUglify',() => {
@@ -55,32 +56,32 @@ gulp.task('cssUglify',() => {
     .pipe(concat('index.debug.css'))
     .pipe(App.uglifyMap ? cleanCSS({compatibility: 'ie8'}) : gulp.dest(Util.path('../dist/style')))
     .pipe(gulp.dest(Util.path('../dist/style')))
-})
+});
 
 //压缩js 
 gulp.task('jsUglify',() => {
   gulp.src(Util.path('js/*.js'))
     .pipe(App.uglifyMap ? uglify({ mangle: false }): gulp.dest(Util.path('../dist/js')))
     .pipe(gulp.dest(Util.path('../dist/js')))
-})
+});
 
 //html输出
-gulp.task('htmlUglify', ()=>{
+gulp.task('htmlUglify', () => {
   gulp.src(Util.path('*.html'))
     .pipe(gulp.dest(Util.path('../dist')))
-})
+});
 
 //图片输出
-gulp.task('imagesUglify', ()=>{
+gulp.task('imagesUglify', () => {
   gulp.src(Util.path('images/*.png'))
     .pipe(gulp.dest(Util.path('../dist/images')))
-})
+});
 
 //font输出
-gulp.task('fontUglify', ()=>{
+gulp.task('fontUglify', () =>{
   gulp.src(Util.path('font/*.css'))
     .pipe(gulp.dest(Util.path('../dist/font')))
-})
+});
 
 //修改html页面
 gulp.task('html', () => {
@@ -114,16 +115,8 @@ gulp.task('spritesmith',function(){
           }
       }))
       .pipe(gulp.dest(Util.path('images')));
-})
-//服务
-gulp.task('server', () => {
-  connect.server({
-    root: App.srcPath,
-    port: App.port,
-    host: App.host || '127.0.0.1',
-    livereload: true //实时刷新
-  })
 });
+
 
 fs.watch(Util.path('images/_sprite'), { encoding: 'utf-8' }, (eventType, filename) => {
   if (filename) {
@@ -143,10 +136,29 @@ gulp.task('watch',function(){
     gulp.watch(Util.path('../bin/text.txt'),['spritesmith'])
 
     gulp.watch(Util.path('*.html'),['html']);
-}) 
+});
 //压缩css-all   
-var type = App.cssStyle || 'px2rem' ;
-gulp.task('cssUglifyAll', [type,'cssUglify'])
+let type = App.cssStyle || 'px2rem' ;
+
+gulp.task('cssUglifyAll', [ type,'cssUglify']);
+
+//服务
+gulp.task('server', () => {
+  connect.server({
+    root: App.srcPath,
+    port: App.port,
+    host: App.host || '127.0.0.1',
+    livereload: true, //实时刷新,
+    middleware: function(connect, opt) {
+      let proxyList  = [];
+      for (let key in App.proxy) {
+        let value = App.proxy[key];
+        proxyList.push(proxy(key, value))
+      }
+      return proxyList
+   }
+  })
+});
 
 //上线 build 压缩all.css js 
 gulp.task('build',['cssUglifyAll','jsUglify','htmlUglify','imagesUglify','fontUglify'])

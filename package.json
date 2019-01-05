@@ -34,11 +34,13 @@
     "gulp-clean-css": "^3.9.2",
     "gulp-concat": "^2.6.1",
     "gulp-connect": "^5.5.0",
+    "gulp-connect-proxy": "^0.3.1",
     "gulp-inject": "^4.3.1",
     "gulp-less": "^4.0.0",
     "gulp-px3rem": "^0.3.0",
     "gulp-sass": "^3.1.0",
     "gulp-uglify": "^3.0.0",
-    "gulp.spritesmith": "^6.9.0"
+    "gulp.spritesmith": "^6.9.0",
+    "http-proxy-middleware": "^0.19.1"
   }
 }

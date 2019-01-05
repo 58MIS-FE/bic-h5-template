@@ -6,8 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Page Title</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!-- <link rel="stylesheet" type="text/css" media="screen" href="./_style/index.css"/> -->
-  <link rel="stylesheet" type="text/css" media="screen" href="./style/index.debug.css"/>
+  <link rel="stylesheet" type="text/css" media="screen" href="./style/index.debug.css"/> 
   <script src="http://apps.bdimg.com/libs/zepto/1.1.4/zepto.min.js"></script>
   <script>
     (function () {
@@ -15,36 +14,10 @@
       if ((navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i))) {
         $("html").css('font-size', $(window).width() / 375 * 75);
       }
-
     })();
-    function iframeHeight(){
-        var ifm = document.getElementById("ifr");
-        var subWeb = document.frames ? document.frames["ifm"].document : ifm.contentDocument;
-        return $(subWeb.body).height();
-   }
-
   </script>
 </head>
 <body>
-  <input type="text" value="178157721524789248" hidden id='id'>
-  <input type="text" value="10010" hidden id='categoryId'>
-  <input type="text" value="0" hidden id='bspId'>
-  <div class="top__wrap">
-    <span class="top__logo"></span>
-    <div class="top__text">
-      <p class="font__16">美事</p>
-      <p class="font__11">让工作更美好</p>
-    </div>
-    <span class="top__open">打开</span>
-  </div>
-  <div class="iframe_box">
-      <iframe id="ifr" src="" frameborder="0" scrolling="no" onload="iframeHeight()"></iframe>
-  </div>
-  <div class="iframe_btn">
-    <div class="iframe_btn_icon"></div>
-    <div class="iframe_btn_success">展开阅读全文</div>
-  </div>
-  <div class="recommond__wrap">
     <p class="recommond__title">
       热门推荐
     </p>
@@ -74,4 +47,4 @@
 
 </body>
 </html>
-   <script src="./js/index.js"></script>
+<script src="./js/index.js"></script>

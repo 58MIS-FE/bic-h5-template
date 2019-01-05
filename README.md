@@ -1,4 +1,4 @@
-## MIS-移动端脚手架 
+## BIC-静态页面移动端脚手架 
 
 ### 对设计要求 
 
@@ -74,8 +74,6 @@ text.css
 
 ```
     "build:css": "gulp px2rem",
-    "build:less": "gulp less",
-    "build:sass": "gulp sass",
     "build:img": "gulp spritesmith",
     "build": "gulp build",
     "dev": "gulp",
