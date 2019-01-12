@@ -1,1 +1,1 @@
-ico_look.png
+logo.png
