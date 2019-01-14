@@ -1,35 +1,21 @@
-.icon-ico_class  
+.icon-exclusive-error-icon
                     {
-                      background-image: url('../images/sprite.png');
-                      background-position: 0px  -123px;
-                      width:36px;
-                      height:40px;
-                     }
-.icon-ico_class_a  
-                    {
-                      background-image: url('../images/sprite.png');
+                      background-image: url('../image/sprite.png');
                       background-position: 0px  0px;
-                      width:25px;
-                      height:25px;
+                      width:44px;
+                      height:44px;
                      }
-.icon-ico_class_z  
+.icon-exclusive-right-icon
                     {
-                      background-image: url('../images/sprite.png');
-                      background-position: 0px  -40px;
-                      width:25px;
-                      height:25px;
+                      background-image: url('../image/sprite.png');
+                      background-position: 0px  -59px;
+                      width:44px;
+                      height:44px;
                      }
-.icon-ico_delte_s  
+.icon-exma-analysis-item
                     {
-                      background-image: url('../images/sprite.png');
-                      background-position: 0px  -80px;
-                      width:28px;
-                      height:28px;
-                     }
-.icon-ico_look  
-                    {
-                      background-image: url('../images/sprite.png');
-                      background-position: 0px  -178px;
-                      width:42px;
-                      height:42px;
+                      background-image: url('../image/sprite.png');
+                      background-position: 0px  -118px;
+                      width:60px;
+                      height:60px;
                      }

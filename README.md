@@ -1,21 +1,28 @@
-## BIC-静态页面移动端脚手架 
+## BIC-静态页面移动端脚手架
 
-### 对设计要求 
+### 设计稿要求
 
-1.图片 icon 最好是3倍图 
-2.设计稿为 375px 
-
----
-### 使用场景 
-
-适用于不使用前端自动化工具的项目，将纯手工打造的以px来布局的css文件批量转换成rem布局的css。
+1. 图片 icon 最好是3倍图  
+2. 设计稿为 375px
 
 ---
+### 涵盖功能
 
+适用于不使用前端自动化工具的项目，涵盖功能：
+ 1. 移动端适配，px单位自动转换rem
+ 2. 本地服务代理proxy，调试地址可跨域
+ 3. 雪碧图
+ 4. 静态资源压缩
+ 5. 资源路径替换
+ 6. ES6支持
+
+---
+### 使用细则
+
+##### 1、px转换rem
 根据gulp-px3rem 对px进行转换成rem 适配大部分机型
 
-
-text.css 
+text.css
 ```
 .demo{
     width: 150px;
@@ -24,8 +31,8 @@ text.css
     border: 1px solid #ddd; /*no*/
 }
 
-``` 
-转换成 
+```
+转换成
 
 ```
 .selector {
@@ -46,7 +53,7 @@ text.css
 }
 
 
-``` 
+```
 
 <table>
         <tr>
@@ -63,24 +70,56 @@ text.css
         </tr>
 </table>
 
-##### 注意: Chrome最小12px 11px转换rem的时候在ipone5下会发现字体无法转换 但是在手机上没有问题. 
-更多详情请了解 
-<a href='https://www.npmjs.com/package/gulp-px3rem'>gulp-px3rem</a> 
-<a href='https://www.cnblogs.com/yanxinhua/p/6816141.html'>css雪碧图</a>
+**注意: Chrome最小12px 11px转换rem的时候在ipone5下会发现字体无法转换 但是在手机上没有问题.**  
+更多了解戳这里：<a href='https://www.npmjs.com/package/gulp-px3rem'>gulp-px3rem</a>
 
+##### 2、雪碧图
+将需要合并的图片放在image/sprite/目录中，本地服务开启后，会自动监控改目录下的变动，从而更新font目录下用于记录雪碧图样式的icon.css文件  
+更多了解戳这里：<a href='https://www.cnblogs.com/yanxinhua/p/6816141.html'>css雪碧图</a>
 
-
-## npm run 
-
+##### 3、资源路径替换
 ```
-    "build:css": "gulp px2rem",
-    "build:img": "gulp spritesmith",
-    "build": "gulp build",
-    "dev": "gulp",
-    "start": "gulp",
- 
+resourcePath: { // 修改资源路径
+  css: 'https://c.58cdn.com.cn/fanglearning/app',
+  js: '',
+  image: 'https://img.58cdn.com.cn/fanglearning/app'
+},
+```
+在配置文件config/iddex.js中，可以配置打包时需要替换的资源路径
+
+---
+### 配置文件
+```
+{
+   port : 9091,  // 本地服务端口
+   host : '',  //本地服务地址
+   srcPath : path.join(__dirname, '../src'),
+   uglifyMap: { //静态资源是否压缩
+     css: false,
+     js: false
+   },
+   resourcePath: { // 资源路径替换
+     css: 'https://c.58cdn.com.cn/fanglearning/app',
+     js: '',
+     image: 'https://img.58cdn.com.cn/fanglearning/app'
+   },
+   proxy: {  // 代理配置
+    '/api': {
+        target: 'http://10.48.210.13:11083',
+        changeOrigin: true,
+        pathRewrite: {
+            '^/api': ''
+        }
+    }
+  },
+}
 ```
 
+## 安装运行
+##### 推荐
+安装功能脚手架mis-cli,其中已经集成了改脚手架，如图所示
 
-
-
+##### 克隆项目
+```
+git clone https://github.com/58MIS-FE/mis-h5-rem.git
+```
