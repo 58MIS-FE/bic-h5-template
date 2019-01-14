@@ -117,7 +117,8 @@ resourcePath: { // 修改资源路径
 
 ## 安装运行
 ##### 推荐
-安装功能脚手架mis-cli,其中已经集成了改脚手架，如图所示
+安装功能脚手架mis-cli,其中已经集成了该脚手架  
+更过了解请戳这里[mis-cli](https://github.com/58MIS-FE/mis-cli)
 
 ##### 克隆项目
 ```
