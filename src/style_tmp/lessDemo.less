@@ -1,0 +1,32 @@
+@color: color;
+@dialog: .dialog;
+@suffix: fix;
+// 空格将被忽略，若要保留空格则需要使用单引号或双引号
+@hi: 'hello ';
+@dear: there  ;
+
+.dialog{
+// 用于 rule属性部件，必须使用"@{变量名}" 的形式
+   background-@{color}: #888;
+   // 用于 rule属性，必须使用"@{变量名}" 的形式
+   @{color}: blue;
+}
+// 用于 选择器，必须使用"@{变量名}" 的形式
+@{dialog}{
+   width: 200px;
+}
+@{dialog}::after{
+   content: ': @{hi}@{dear}!';    // 用于 字符串拼接，必须使用"@{变量名}" 的形式
+}
+@h: 1000px;
+// 用于 选择器部件，必须使用"@{变量名}" 的形式
+.ie-@{suffix}{
+   @h: 30px; // 存在作用域，局部作用域优先级高于全局作用域。
+   height: @h; // 用于 属性值，两种形式均可使用
+   line-height: 30px;
+}
+// 1. 以@作为变量的起始标识，变量名由字母、数字、_和-组成
+// 2. 没有先定义后使用的规定；
+@dialog-border-color: #666;
+@dialog-border-width: 10px;
+@dialog-border-width: 1px; // 3. 以最后定义的值为最终值；

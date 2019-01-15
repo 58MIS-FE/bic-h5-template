@@ -28,9 +28,11 @@ let gulp = require('gulp'),
     remPrecision: 6 // rem precision (default: 6)
   };
 
+sass.compiler = require('node-sass');
+
 //px转换rem
 gulp.task('px2rem', () => {
-  gulp.src(Util.path('style_tmp/**/*.css'))
+  return gulp.src(Util.path('style_tmp/**/*.css'))
     .pipe(px2rem(px2remConfig))
     .pipe(autoprefix('last 2 versions'))
     .pipe(connect.reload())
@@ -39,20 +41,22 @@ gulp.task('px2rem', () => {
 
 //less文件
 gulp.task('less', () => {
-  gulp.src(Util.path('_less/**/*.less'))
+  return gulp.src(Util.path('style_tmp/**/*.less'))
     .pipe(less())
+    .pipe(px2rem(px2remConfig))
     .pipe(autoprefix('last 2 versions'))
     .pipe(connect.reload())
-    .pipe(gulp.dest(Util.path('style_tmp')))
+    .pipe(gulp.dest(Util.path('style')))
 });
 
 //sass文件
 gulp.task('sass', () => {
-  gulp.src(Util.path('_scss/**/*.scss'))
-    .pipe(cleanCSS())
+  return gulp.src(Util.path('style_tmp/**/*.scss'))
+    .pipe(sass().on('error', sass.logError))
+    .pipe(px2rem(px2remConfig))
     .pipe(autoprefix('last 2 versions'))
     .pipe(connect.reload())
-    .pipe(gulp.dest(Util.path('style_tmp')))
+    .pipe(gulp.dest(Util.path('style')))
 });
 
 //压缩css
@@ -165,8 +169,8 @@ fs.watch(Util.path('image/sprite'), {
 });
 //监控任务
 gulp.task('watch', function() {
-  // gulp.watch(Util.path('_less/*.less'), ['less','px2rem'])
-  // gulp.watch(Util.path('_scss/*.scss'), ['sass', 'px2rem'])
+  gulp.watch(Util.path('style_tmp/**/*.less'), ['less'])
+  gulp.watch(Util.path('style_tmp/**/*.scss'), ['sass'])
   gulp.watch(Util.path('style_tmp/**/*.css'), ['px2rem'])
   // gulp.watch(Util.path('images/sprite/*.png'), function(event){
   //   console.log(event.path,'-------------------'); //变化的文件的路径

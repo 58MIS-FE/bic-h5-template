@@ -1,0 +1,17 @@
+.dialog {
+  background-color: #888;
+  color: blue;
+}
+
+.dialog {
+  width: 10rem;
+}
+
+.dialog::after {
+  content: ': hello there!';
+}
+
+.ie-fix {
+  height: 1.5rem;
+  line-height: 1.5rem;
+}
