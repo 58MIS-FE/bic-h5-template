@@ -19,7 +19,7 @@
 ---
 ### 使用细则
 
-##### 1、px转换rem
+#### 1、px转换rem
 根据gulp-px3rem 对px进行转换成rem 适配大部分机型
 
 text.css
@@ -73,11 +73,11 @@ text.css
 **注意: Chrome最小12px 11px转换rem的时候在ipone5下会发现字体无法转换 但是在手机上没有问题.**  
 更多了解戳这里：<a href='https://www.npmjs.com/package/gulp-px3rem'>gulp-px3rem</a>
 
-##### 2、雪碧图
+#### 2、雪碧图
 将需要合并的图片放在image/sprite/目录中，本地服务开启后，会自动监控改目录下的变动，从而更新font目录下用于记录雪碧图样式的icon.css文件  
 更多了解戳这里：<a href='https://www.cnblogs.com/yanxinhua/p/6816141.html'>css雪碧图</a>
 
-##### 3、资源路径替换
+#### 3、资源路径替换
 ```
 resourcePath: { // 修改资源路径
   css: 'https://c.58cdn.com.cn/fanglearning/app',
@@ -115,12 +115,65 @@ resourcePath: { // 修改资源路径
 }
 ```
 
-## 安装运行
-##### 推荐
+### 安装运行
+#### 推荐
 安装功能脚手架mis-cli,其中已经集成了该脚手架  
 更过了解请戳这里[mis-cli](https://github.com/58MIS-FE/mis-cli)
 
-##### 克隆项目
+#### 克隆项目
 ```
 git clone https://github.com/58MIS-FE/mis-h5-rem.git
+```
+
+### 项目目录以及注释
+```
+.  
+├── README.md  
+├── bin  
+│   └── text.txt  // 记录image/sprite目录中图标的名称，用于监控合成雪碧图
+├── config        // 配置目录
+│   ├── index.js  // 配置文件
+│   └── util.js
+├── dist          // build打包目录
+│   ├── font
+│   │   └── icon.css
+│   ├── image
+│   │   ├── sprite
+│   │   │   ├── exclusive-error-icon.png
+│   │   │   ├── exclusive-right-icon.png
+│   │   │   └── exma-analysis-item.png
+│   │   └── sprite.png
+│   └── style
+│       ├── lessDemo.debug.css
+│       └── sassDemo.debug.css
+├── gulpfile.js
+├── package.json
+└── src          // 开发目录
+    ├── font     // 用于存放雪碧图样式和字体样式
+    │   └── icon.css
+    ├── image    // 图片目录
+    │   ├── bg.jpeg
+    │   ├── logo.png
+    │   ├── sprite  // 需要合成雪碧图的图标存放目录
+    │   │   ├── exclusive-error-icon.png
+    │   │   ├── exclusive-right-icon.png
+    │   │   └── exma-analysis-item.png
+    │   └── sprite.png // 合成的雪碧图
+    ├── js      // js目录
+    │   └── index.js
+    ├── style   // 样式引用目录
+    │   ├── index.debug.css
+    │   ├── lessDemo.debug.css
+    │   ├── reset.debug.css
+    │   └── sassDemo.debug.css
+    ├── style_tmp  // 样式开发目录，支持less以及sass
+    │   ├── index.css
+    │   ├── lessDemo.less
+    │   ├── reset.css
+    │   └── sassDemo.scss
+    └── views   // 页面目录
+        ├── demo
+        │   └── index.html
+        └── index.html
+
 ```
