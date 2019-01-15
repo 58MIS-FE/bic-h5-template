@@ -85,7 +85,7 @@ resourcePath: { // 修改资源路径
   image: 'https://img.58cdn.com.cn/fanglearning/app'
 },
 ```
-在配置文件config/iddex.js中，可以配置打包时需要替换的资源路径
+在配置文件config/index.js中，可以配置打包时需要替换的资源路径
 
 ---
 ### 配置文件
