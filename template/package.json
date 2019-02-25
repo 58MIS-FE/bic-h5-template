@@ -14,7 +14,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/58MIS-FE/mis-h5-rem.git"
+    "url": "git+https://github.com/58MIS-FE/bic-h5-template.git"
   },
   "keywords": [
     "移动端脚手架",
@@ -23,9 +23,9 @@
   "author": "{{author}}",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/58MIS-FE/mis-h5-rem/issues"
+    "url": "https://github.com/58MIS-FE/bic-h5-template/issues"
   },
-  "homepage": "https://github.com/58MIS-FE/mis-h5-rem#readme",
+  "homepage": "https://github.com/58MIS-FE/bic-h5-template#readme",
   "devDependencies": {
     "babel-core": "^6.26.3",
     "babel-preset-env": "^1.7.0",
