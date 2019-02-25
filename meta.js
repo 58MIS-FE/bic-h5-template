@@ -4,7 +4,7 @@ module.exports = {
             "type": "string",
             "required": false,
             "message": "Project name",
-            "default": "h5-demo"
+            "default": "H5-demo"
         },
         "author": {
             "type": "string",

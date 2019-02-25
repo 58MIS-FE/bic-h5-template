@@ -1,8 +1,7 @@
 {
-  "name": "mis-h5-rem",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "name": "{{name}}",
+  "version": "{{version}}",
+  "description": "{{description}}",
   "scripts": {
     "build:css": "gulp px2rem",
     "build:less": "gulp less",
@@ -21,7 +20,7 @@
     "移动端脚手架",
     "px转换rem"
   ],
-  "author": "zz-fe",
+  "author": "{{author}}",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/58MIS-FE/mis-h5-rem/issues"
